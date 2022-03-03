@@ -1,12 +1,18 @@
 import "./styles.css";
-import { configs } from "./data/index";
+import { Header, RouteComponent, FooterComponent } from "./components";
 
-export default function App() {
+function App() {
   return (
-    <div className="">
-      {configs.map((item, index) => (
-        <div>{JSON.stringify(item)}</div>
-      ))}
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <div className="my-5">
+          <RouteComponent />
+        </div>
+      </div>
+      <FooterComponent />
+    </>
   );
 }
+
+export default App;
