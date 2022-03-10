@@ -1,3 +1,5 @@
+import * as Icons from 'react-bootstrap-icons';
+
 const FooterComponent = () => {
   return (
     <div className='bg-dark text-white'>
@@ -8,16 +10,20 @@ const FooterComponent = () => {
           <div className='col'>
             <ul className='social-icons'>
               <li>
-                <i class='bi bi-facebook'></i>
+                <Icons.Facebook />
+                {/* <i class='bi bi-facebook'></i> */}
               </li>
               <li>
-                <i class='bi bi-twitter'></i>
+                <Icons.Twitter />
+                {/* <i class='bi bi-twitter'></i> */}
               </li>
               <li>
-                <i class='bi bi-youtube'></i>
+                <Icons.Youtube />
+                {/* <i class='bi bi-youtube'></i> */}
               </li>
               <li>
-                <i class='bi bi-skype'></i>
+                <Icons.Skype />
+                {/* <i class='bi bi-skype'></i> */}
               </li>
             </ul>
           </div>
