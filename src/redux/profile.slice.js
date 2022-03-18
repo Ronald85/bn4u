@@ -12,9 +12,15 @@ export const profileSlice = createSlice({
   reducers: {
     getAll: (state) => {
       state.items = data;
+    },
+    addProfile: (state, action) => {
+      state.items.push(action.payload);
+    },
+    getProfile: (state, action) => {
+      alert(action);
     }
   }
 });
 
-export const { getAll } = profileSlice.actions;
+export const { getAll, addProfile, getProfile } = profileSlice.actions;
 export default profileSlice.reducer;

@@ -1,2 +1,4 @@
-export * from './connect';
-export * from './contact';
+export * from "./connect";
+export * from "./contact";
+export * from "./news";
+export * from "./services";

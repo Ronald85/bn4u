@@ -1,7 +1,7 @@
 const MatrimonyMaster = () => {
   return (
     <>
-      <h5>we show all data here</h5>
+      <p>Matrimony begins</p>
     </>
   );
 };

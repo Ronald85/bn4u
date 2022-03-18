@@ -19,11 +19,11 @@ const ListItem = (props) => {
         </thead>
         <tbody>
           {profiles.map((item, index) => (
-            <tr>
+            <tr key={item.id}>
               <td>{index + 1}.</td>
               <td>{`${item.firstName}, ${item.lastName}`}</td>
-              <td>{configs.find((f) => f.id == item.genderId).configValue}</td>
-              <td>{item.dob.toLocaleDateString()}</td>
+              <td>{configs.find((f) => f.id == item.genderId)?.configValue}</td>
+              <td>{JSON.stringify(item.dob)}</td>
               <td>
                 <Link to={`${item.id}`} className="btn btn-sm btn-primary">
                   View

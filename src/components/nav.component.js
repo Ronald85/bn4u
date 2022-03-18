@@ -30,9 +30,13 @@ export const Navigation = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#1">
+            <NavLink
+              className={`nav-link ${({ isActive }) =>
+                isActive ? "active" : ""}`}
+              to="news"
+            >
               New & Trends
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#1">
@@ -40,9 +44,13 @@ export const Navigation = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#1">
+            <NavLink
+              className={`nav-link ${({ isActive }) =>
+                isActive ? "active" : ""}`}
+              to="services"
+            >
               Services
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
@@ -87,6 +95,15 @@ export const Navigation = () => {
               to="matrimony"
             >
               Matrimony
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              className={`nav-link ${({ isActive }) =>
+                isActive ? "active" : ""}`}
+              to="churches"
+            >
+              Churches
             </NavLink>
           </li>
         </ul>

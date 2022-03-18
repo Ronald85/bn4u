@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import * as Icons from "react-bootstrap-icons";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getAll } from "../redux/job.slice";
@@ -15,25 +16,26 @@ const Post = ({ item }) => {
             </Link>
             <p className="">{item.company}</p>
             <p className="mb-1">
-              <i class="bi bi-vector-pen m-2"></i>
-              {item.experience}
+              <Icons.VectorPen />
+              <span className="ms-2">{item.experience}</span>
             </p>
 
             <p className="mb-1">
-              <i class="bi bi-map m-2"></i> {item.location}
+              <Icons.Map />
+              <span className="ms-2">{item.location}</span>
             </p>
             <p className="mb-1">
-              <i class="bi bi-briefcase m-2"></i>
-              {item.department}
+              <Icons.Briefcase />
+              <span className="ms-2">{item.department}</span>
             </p>
             <p className="mb-1">
-              <i class="bi bi-file-text m-2"></i>
-              {item.department}
+              <Icons.FileText />
+              <span className="ms-2">{item.department}</span>
             </p>
 
             <p className="mb-1">
-              <i class="bi bi-calendar3 m-2"></i>
-              {item.expDate}
+              <Icons.Calendar3 />
+              <span className="ms-2">{item.expDate}</span>
             </p>
           </div>
           <div className="col-md-1">

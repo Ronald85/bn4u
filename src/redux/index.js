@@ -1,15 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import configReducer from "./config.slice";
+import configsReducer from "./config.slice";
 import jobsReducer from "./job.slice";
 import profilesReducer from "./profile.slice";
+import newsReducer from "./news.slice";
 
 const store = configureStore({
   reducer: {
-    configs: configReducer,
+    configs: configsReducer,
     jobs: jobsReducer,
-    profiles: profilesReducer
-  }
+    profiles: profilesReducer,
+    news: newsReducer
+  },
+  devTools: true
 });
 
 export { store };

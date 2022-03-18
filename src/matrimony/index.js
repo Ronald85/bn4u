@@ -7,6 +7,7 @@ const Matrimony = () => {
       <Routes>
         <Route exact path="/" element={<MatrimonyMaster />} />
       </Routes>
+      <Outlet />
     </div>
   );
 };
