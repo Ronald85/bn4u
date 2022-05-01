@@ -1,18 +1,36 @@
 import { Link, useLocation } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { usePostJobMutation } from "../redux/jobs.api";
 
 const JobForm = (props) => {
+  const [postJob] = usePostJobMutation();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    await postJob(data);
+  };
+
   return (
     <div className="card">
       <div className="card-body">
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row mb-3">
             <label className="col-form-label col-md-2">Job Title</label>
             <div className="col-md-10">
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${errors.title ? "is-invalid" : ""}`}
                 placeholder="enter job title"
+                {...register("title", { required: true })}
               ></input>
+              {errors.title && (
+                <p className="invalid-feedback">job title is required</p>
+              )}
             </div>
           </div>
 

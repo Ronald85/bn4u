@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import * as Icons from "react-bootstrap-icons";
-import { useSelector, useDispatch } from "react-redux";
 
-import { getAll } from "../redux/job.slice";
+import { useGetAllQuery } from "../redux/jobs.api";
 
 const Post = ({ item }) => {
   return (
@@ -11,7 +10,7 @@ const Post = ({ item }) => {
       <div className="card-body">
         <div className="d-flex">
           <div className="col-md-11">
-            <Link to={`/jobs/description/${item.id}`} className="h5">
+            <Link to={`/jobs/description/${item.Id}`} className="h5">
               {item.title}
             </Link>
             <p className="">{item.company}</p>
@@ -55,18 +54,8 @@ const Post = ({ item }) => {
 
 const JobsMaster = () => {
   const { pathname } = useLocation();
-  const jobs = useSelector((state) => state.jobs);
-  const dispatch = useDispatch();
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  const onLoadMoreClick = () => {
-    setIsLoading(true);
-    dispatch(getAll());
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  };
+  const { data: jobs, isLoading } = useGetAllQuery();
+  const onLoadMoreClick = () => {};
 
   useEffect(() => {
     // dispatch(getAll());
@@ -76,7 +65,7 @@ const JobsMaster = () => {
     <div className="">
       <Link to={`${pathname}/create`}>ADD</Link>
 
-      {jobs.items.map((item) => (
+      {jobs?.map((item) => (
         <Post item={item} />
       ))}
 

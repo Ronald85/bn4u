@@ -1,11 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+
+import { useGetJobQuery } from "../redux/jobs.api";
 
 const JobDescription = (props) => {
   const { id } = useParams();
-  const jobItem = useSelector((state) =>
-    state.jobs.items.find((f) => f.id === parseInt(id, 10))
-  );
+  const { data: jobItem } = useGetJobQuery(id);
 
   return (
     <div className="d-flex">
